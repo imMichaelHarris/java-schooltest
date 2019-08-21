@@ -30,6 +30,11 @@ public class CourseServiceImpl implements CourseService
         return courserepos.getCountStudentsInCourse();
     }
 
+    @Override
+    public Course findCourseById(long id) {
+        return courserepos.findCourseById(id);
+    }
+
     @Transactional
     @Override
     public void delete(long id) throws EntityNotFoundException
@@ -42,5 +47,10 @@ public class CourseServiceImpl implements CourseService
         {
             throw new EntityNotFoundException(Long.toString(id));
         }
+    }
+
+    @Override
+    public Course save(Course newCourse) {
+        return courserepos.save(newCourse);
     }
 }
