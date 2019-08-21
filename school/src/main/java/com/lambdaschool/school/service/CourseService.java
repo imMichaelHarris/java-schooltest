@@ -4,7 +4,6 @@ import com.lambdaschool.school.model.Course;
 import com.lambdaschool.school.view.CountStudentsInCourses;
 
 import java.util.ArrayList;
-import java.util.Optional;
 
 public interface CourseService
 {
@@ -14,5 +13,7 @@ public interface CourseService
 
     void delete(long id);
 
-    Optional<Course> findCourseById(long id);
+    Course findCourseById(long id);
+
+    Course save(Course newCourse);
 }

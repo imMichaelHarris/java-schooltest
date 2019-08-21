@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
-import java.util.Optional;
 
 @Service(value = "courseService")
 public class CourseServiceImpl implements CourseService
@@ -32,8 +31,8 @@ public class CourseServiceImpl implements CourseService
     }
 
     @Override
-    public Optional<Course> findCourseById(long id) {
-        return courserepos.findById(id);
+    public Course findCourseById(long id) {
+        return courserepos.findCourseById(id);
     }
 
     @Transactional
@@ -48,5 +47,10 @@ public class CourseServiceImpl implements CourseService
         {
             throw new EntityNotFoundException(Long.toString(id));
         }
+    }
+
+    @Override
+    public Course save(Course newCourse) {
+        return courserepos.save(newCourse);
     }
 }
